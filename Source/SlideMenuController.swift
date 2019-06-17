@@ -92,14 +92,14 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         self.init()
         self.mainViewController = mainViewController
         leftViewController = leftMenuViewController
-        initView()
+        //initView()
     }
     
     public convenience init(mainViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
         self.mainViewController = mainViewController
         rightViewController = rightMenuViewController
-        initView()
+        //initView()
     }
     
     public convenience init(mainViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
@@ -107,17 +107,17 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         self.mainViewController = mainViewController
         leftViewController = leftMenuViewController
         rightViewController = rightMenuViewController
-        initView()
+        //initView()
     }
     
     open override func awakeFromNib() {
-        initView()
+        //initView()
     }
 
     deinit { }
     
     open func initView() {
-        mainContainerView = UIView(frame: view.bounds)
+        mainContainerView.frame = view.bounds
         mainContainerView.backgroundColor = UIColor.clear
         mainContainerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.insertSubview(mainContainerView, at: 0)
@@ -126,7 +126,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         let opacityOffset: CGFloat = 0
         opacityframe.origin.y = opacityframe.origin.y + opacityOffset
         opacityframe.size.height = opacityframe.size.height - opacityOffset
-        opacityView = UIView(frame: opacityframe)
+        opacityView.frame = opacityframe
         opacityView.backgroundColor = SlideMenuOptions.opacityViewBackgroundColor
         opacityView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         opacityView.layer.opacity = 0.0
@@ -139,7 +139,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         let leftOffset: CGFloat = 0
         leftFrame.origin.y = leftFrame.origin.y + leftOffset
         leftFrame.size.height = leftFrame.size.height - leftOffset
-        leftContainerView = UIView(frame: leftFrame)
+        leftContainerView.frame = leftFrame
         leftContainerView.backgroundColor = UIColor.clear
         leftContainerView.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
         view.insertSubview(leftContainerView, at: 2)
@@ -153,7 +153,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         let rightOffset: CGFloat = 0
         rightFrame.origin.y = rightFrame.origin.y + rightOffset
         rightFrame.size.height = rightFrame.size.height - rightOffset
-        rightContainerView = UIView(frame: rightFrame)
+        rightContainerView.frame = rightFrame
         rightContainerView.backgroundColor = UIColor.clear
         rightContainerView.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
         view.insertSubview(rightContainerView, at: 3)
@@ -187,6 +187,9 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
   
     open override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initView()
+        
         edgesForExtendedLayout = UIRectEdge()
     }
 
