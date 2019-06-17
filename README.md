@@ -21,7 +21,7 @@ iOS Slide View based on iQON, Feedly, Google+, Ameba iPhone app.
 
 #### CocoaPods
 ```
-pod 'SlideMenuControllerSwift'
+pod 'SlideMenuControllerSwift', :git => 'https://github.com/BSFishy/SlideMenuControllerSwift.git'
 ```
 
 #### Carthage
