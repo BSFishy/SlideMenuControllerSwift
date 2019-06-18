@@ -191,6 +191,8 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         self.initView()
         
         edgesForExtendedLayout = UIRectEdge()
+        
+        self.layoutSubViews()
     }
 
     override open func viewWillAppear(_ animated: Bool) {
@@ -210,7 +212,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         return mainViewController?.shouldAutorotate ?? false
     }
         
-    open override func viewWillLayoutSubviews() {
+    open func layoutSubViews() {
         // topLayoutGuideの値が確定するこのタイミングで各種ViewControllerをセットする
         setUpViewController(mainContainerView, targetViewController: mainViewController)
         setUpViewController(leftContainerView, targetViewController: leftViewController)
